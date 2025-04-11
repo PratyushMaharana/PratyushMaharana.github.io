@@ -1,95 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Portfolio</title>
   <style>
-    /* General styles */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #111;
     }
 
     header {
-      background: #333;
-      color: #fff;
-      padding: 1rem 0;
       text-align: center;
+      padding: 50px 20px;
     }
 
     header h1 {
-      margin: 0;
+      font-size: 3em;
+      margin: 10px 0;
+      color: #111;
     }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
+    header p {
+      font-size: 1.2em;
+      color: #555;
     }
 
-    nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     section {
-      padding: 2rem;
-      margin: 1rem auto;
       max-width: 800px;
-      text-align: center;
+      margin: 120px auto;
+      padding: 30px;
+      background: rgba(240, 240, 240, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #6a0dad;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #ff1493;
+      text-decoration: none;
     }
 
     footer {
-      background: #333;
-      color: #fff;
       text-align: center;
-      padding: 1rem 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      padding: 30px;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Website</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi! I'm an aspiring AI researcher and a Class 11 Computer Science student. I love exploring new technologies and creating exciting projects.</p>
-  </section>
+<canvas id="bg"></canvas>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>Project 1: <a href="#" target="_blank">AI-based Chatbot</a></li>
-      <li>Project 2: <a href="#" target="_blank">Portfolio Website</a></li>
-      <li>Project 3: <a href="#" target="_blank">Data Visualization Tool</a></li>
-    </ul>
-  </section>
+<header>
+  <h1>Pratyush</h1>
+  <p>in high school | AI & ML Enthusiast</p>
+</header>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
-  </section>
+<section>
+  <h2>About Me</h2>
+  <p>Hi! I'm currently in high school, diving deep into the world of Machine Learning and AI. I love using mathematics, biology, and technology to explore cool problems and build creative solutions. Preparing for JEE 2026 and building cool stuff along the way!</p>
+</section>
 
-  <footer>
-    <p>&copy; 2024 My Website | Built with ❤️ by [Your Name]</p>
-  </footer>
+<section>
+  <h2>Projects</h2>
+  <ul>
+    <li><strong>Stock prediction with Machine learning</strong> – This project predicts future stock prices using a Long Short-Term Memory (LSTM) neural network. It uses historical stock data to train the model and forecasts future prices for a given stock.</li>
+    <li><strong>Urban Bird Sound Study</strong> – By analyzing bird song recordings from different habitats, we aim to identify variations in pitch, frequency, amplitude, and duration of vocalizations</li>
+    <li><strong>NF4 to FP16 Dequantizer</strong> – Fast Triton kernel for tensor conversion</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>GitHub: <a href="https://github.com/PratyushMaharana" target="_blank">github.com/PratyushMaharana</a></p>
+  <p>X : <a href="https://x.com/Pratyush008PRM" target="_blank">https://x.com/Pratyush008PRM</a></p>
+  <p>Email: pratyushmaharana3@gmail.com</p>
+</section>
+
+<footer>
+  &copy; 2025 pratyush. Made with ❤️ and GitHub Pages.
+</footer>
+
+<!-- 3D Background with Colored Object -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  const canvas = document.getElementById('bg');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const colors = [0xff4081, 0x7c4dff, 0x40c4ff, 0x00e676];
+
+  const helixGroup = new THREE.Group();
+  for (let i = -20; i < 20; i++) {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const sphere1 = new THREE.Mesh(
+      new THREE.SphereGeometry(0.2, 16, 16),
+      new THREE.MeshStandardMaterial({ color })
+    );
+    const sphere2 = sphere1.clone();
+    const angle = i * 0.4;
+    const radius = 2;
+    sphere1.position.set(Math.sin(angle) * radius, i * 0.5, Math.cos(angle) * radius);
+    sphere2.position.set(-Math.sin(angle) * radius, i * 0.5, -Math.cos(angle) * radius);
+    helixGroup.add(sphere1, sphere2);
+  }
+  scene.add(helixGroup);
+
+  const light = new THREE.PointLight(0xffffff, 1);
+  light.position.set(10, 10, 10);
+  scene.add(light);
+
+  camera.position.z = 10;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    helixGroup.rotation.y += 0.005;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>
+
 </body>
 </html>
