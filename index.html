@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Portfolio</title>
+  <title>Pratyush | AI & Bio Portfolio</title>
   <style>
     body {
       margin: 0;
@@ -19,13 +19,12 @@
 
     header h1 {
       font-size: 3em;
-      margin: 10px 0;
       color: #111;
     }
 
     header p {
       font-size: 1.2em;
-      color: #555;
+      color: #666;
     }
 
     canvas {
@@ -37,17 +36,21 @@
 
     section {
       max-width: 800px;
-      margin: 120px auto;
+      margin: 100px auto;
       padding: 30px;
-      background: rgba(240, 240, 240, 0.9);
+      background: rgba(250, 250, 250, 0.95);
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
     h2 {
       color: #6a0dad;
       border-bottom: 1px solid #ddd;
       padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 25px;
     }
 
     ul {
@@ -72,116 +75,118 @@
 
 <header>
   <h1>Pratyush</h1>
-  <p>in high school | AI & ML Enthusiast</p>
+  <p>Class 12 | JEE 2026 | Exploring AI, ML, Biology & Stock Tech</p>
 </header>
 
 <section>
   <h2>About Me</h2>
-  <p>Hi! I'm currently in high school, diving deep into the world of Machine Learning and AI. I love using mathematics, biology, and technology to explore cool problems and build creative solutions. Preparing for JEE 2026 and building cool stuff along the way!</p>
+  <p>I’m a passionate learner in Class 12 diving into AI and Machine Learning. I love solving problems that blend biology, mathematics, and technology. I’m also fascinated by protein structures, DNA, medicine prediction, and how AI can enhance them.</p>
 </section>
 
 <section>
   <h2>Projects</h2>
+
+  <div>
+    <h3>1. Stock Price Prediction using LSTM</h3>
+    <p><strong>Tags:</strong> Deep Learning, LSTM, yFinance, Forecasting</p>
+    <p><strong>Overview:</strong>This project may be predict future stock prices using a Long Short-Term Memory (LSTM) neural network. It fetches historical data, trains a model, and visualizes future stock movement.</p>
+      <p><strong>📄 Research Paper:</strong> <a href="anthropogenic noise .docx.pdf" target="_blank">Read My Full Paper (PDF)</a></p>
+
+  </div>
+
+  <div>
+   <div>
+  <h3>2. Urban Bird Sound Study – Impact of Urbanization on Bird Vocalizations</h3>
+  <p><strong>Tags:</strong> Bioacoustics, Spectrograms, Environmental Science, Urban Ecology</p>
+
+  <p><strong>Overview:</strong> This study explores how human-induced urban noise affects bird communication. By analyzing vocalizations from urban vs. rural areas, it identifies shifts in frequency, pitch, and amplitude that help birds adapt in noisy cities.</p>
+
+  <p><strong>Key Insights:</strong></p>
   <ul>
-    <li><strong>Stock prediction with Machine learning</strong> – This project predicts future stock prices using a Long Short-Term Memory (LSTM) neural network. It uses historical stock data to train the model and forecasts future prices for a given stock.</li>
-    <li><strong>Urban Bird Sound Study</strong> – By analyzing bird song recordings from different habitats, we aim to identify variations in pitch, frequency, amplitude, and duration of vocalizations</li>
-    <li><strong>NF4 to FP16 Dequantizer</strong> – Fast Triton kernel for tensor conversion</li>
+    <li>Birds adapt by singing louder or at different frequencies</li>
+    <li>Spectrograms show overlap of urban noise with bird calls</li>
+    <li>Urban vegetation helps attenuate disruptive noise</li>
   </ul>
-</section>
-<section>
-  <h2>Projects</h2>
 
-  <div>
-    <h3>1. Stock Price Predictor (LSTM)</h3>
-    <p><strong>Tools Used:</strong> Python, TensorFlow, Pandas, Matplotlib</p>
-    <p><strong>Description:</strong> <!-- Replace this with a short summary of what the project does, how it works, and any unique feature you added. Example: A deep learning-based model that predicts future stock prices based on historical data using LSTM neural networks. --></p>
-    <p><strong>GitHub:</strong> <a href="#" target="_blank">View Code</a></p>
+  <p><strong>Future Scope:</strong></p>
+  <ul>
+    <li>Long-term and seasonal bird data collection</li>
+    <li>Deep learning models for bird call detection</li>
+    <li>Impact of vocal change on mating and survival</li>
+    <li>Designing quiet green zones in cities</li>
+    <li>Cross-species vocalization analysis</li>
+  </ul>
+
+  <p><strong>Related Concept:</strong> <a href="https://en.wikipedia.org/wiki/Synurbization" target="_blank">Synurbization – urban effects on wildlife</a></p>
+  <p><strong>📄 Research Paper:</strong> <a href="anthropogenic noise .docx.pdf" target="_blank">Read My Full Paper (PDF)</a></p>
+</div>
   </div>
 
   <div>
-    <h3>2. Urban Bird Sound Analysis</h3>
-    <p><strong>Tools Used:</strong> Librosa, Jupyter, AI/ML Models</p>
-    <p><strong>Description:</strong> <!-- Replace this. Example: A study of how bird vocalizations change in urban environments using signal processing and machine learning. --></p>
-    <p><strong>GitHub:</strong> <a href="#" target="_blank">View Code</a></p>
-  </div>
-
-  <div>
-    <h3>3. NF4 to FP16 Dequantizer (Triton Kernel)</h3>
-    <p><strong>Tools Used:</strong> Triton, PyTorch, CUDA</p>
-    <p><strong>Description:</strong> <!-- Replace this. Example: Custom low-level Triton kernel to convert quantized NF4 tensors into FP16 for fast inference with minimal memory overhead. --></p>
-    <p><strong>GitHub:</strong> <a href="#" target="_blank">View Code</a></p>
+    <h3>3. NF4 to FP16 Dequantizer</h3>
+    <p><strong>Tags:</strong> Triton, CUDA, PyTorch</p>
+    <p>A high-speed kernel built in Triton to convert NF4 quantized tensors into FP16 for faster inference with reduced memory usage.</p>
   </div>
 
   <div>
     <h3>4. Protein Structure Generator (AI)</h3>
-    <p><strong>Tools Used:</strong> PyTorch, AlphaFold-style modeling</p>
-    <p><strong>Description:</strong> <!-- Replace this. Example: Simulated protein folding using AI to predict and render 3D protein conformations. --></p>
-    <p><strong>GitHub:</strong> <a href="#" target="_blank">View Code</a></p>
+    <p><strong>Tags:</strong> AI, Structural Biology</p>
+    <p>Simulates folding of proteins using deep learning models inspired by AlphaFold and explores the use of generative networks in biotech.</p>
   </div>
 
   <div>
     <h3>5. AI-powered Medicine Predictor</h3>
-    <p><strong>Tools Used:</strong> NLP, Transformers, HuggingFace</p>
-    <p><strong>Description:</strong> <!-- Replace this. Example: A smart assistant that predicts drug interactions and medical conditions using biomedical NLP. --></p>
-    <p><strong>GitHub:</strong> <a href="#" target="_blank">View Code</a></p>
+    <p><strong>Tags:</strong> NLP, Transformers</p>
+    <p>Uses biomedical NLP to detect potential drug interactions and treatment suggestions based on published research data.</p>
   </div>
 
 </section>
 
 <section>
   <h2>Contact</h2>
-  <p>GitHub: <a href="https://github.com/PratyushMaharana" target="_blank">github.com/PratyushMaharana</a></p>
-  <p>X : <a href="https://x.com/Pratyush008PRM" target="_blank">https://x.com/Pratyush008PRM</a></p>
+  <p>GitHub: <a href="https://github.com/PratyushMaharana" target="_blank">PratyushMaharana</a></p>
   <p>Email: pratyushmaharana3@gmail.com</p>
 </section>
 
 <footer>
-  &copy; 2025 pratyush. Made with ❤️ and GitHub Pages.
+  &copy; 2025 Pratyush. Made with ❤️ + Three.js + GitHub Pages.
 </footer>
 
-<!-- 3D Background with Colored Object -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-  const canvas = document.getElementById('bg');
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('bg'), alpha: true});
   renderer.setSize(window.innerWidth, window.innerHeight);
-
-  const colors = [0xff4081, 0x7c4dff, 0x40c4ff, 0x00e676];
-
-  const helixGroup = new THREE.Group();
-  for (let i = -20; i < 20; i++) {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const sphere1 = new THREE.Mesh(
-      new THREE.SphereGeometry(0.2, 16, 16),
-      new THREE.MeshStandardMaterial({ color })
-    );
-    const sphere2 = sphere1.clone();
-    const angle = i * 0.4;
-    const radius = 2;
-    sphere1.position.set(Math.sin(angle) * radius, i * 0.5, Math.cos(angle) * radius);
-    sphere2.position.set(-Math.sin(angle) * radius, i * 0.5, -Math.cos(angle) * radius);
-    helixGroup.add(sphere1, sphere2);
-  }
-  scene.add(helixGroup);
+  camera.position.z = 10;
 
   const light = new THREE.PointLight(0xffffff, 1);
   light.position.set(10, 10, 10);
   scene.add(light);
 
-  camera.position.z = 10;
+  // DNA spiral
+  const helixGroup = new THREE.Group();
+  for (let i = 0; i < 60; i++) {
+    const material = new THREE.MeshStandardMaterial({ color: (i % 2 === 0) ? 0x8e44ad : 0x2980b9 });
+    const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 16), material);
+    const angle = i * 0.3;
+    sphere.position.set(Math.cos(angle) * 2, i * 0.3 - 6, Math.sin(angle) * 2);
+    helixGroup.add(sphere);
+  }
+  scene.add(helixGroup);
+
+
 
   function animate() {
     requestAnimationFrame(animate);
     helixGroup.rotation.y += 0.005;
+   
     renderer.render(scene, camera);
   }
-
   animate();
 
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
@@ -189,3 +194,4 @@
 
 </body>
 </html>
+
