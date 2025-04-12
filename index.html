@@ -3,308 +3,845 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pratyush | AI & Bio Portfolio</title>
+  <title>Pratyush Maharana | AI & Bioinformatics Research</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
-    body {
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #1abc9c;
+      --light: #f8f9fa;
+      --dark: #2c3e50;
+      --text: #333;
+      --text-light: #6c757d;
+      --border: #dee2e6;
+      --shadow: rgba(0,0,0,0.1);
+    }
+    
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #ffffff;
-      color: #111;
+      padding: 0;
+      box-sizing: border-box;
     }
-
+    
+    body {
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light);
+    }
+    
     header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 100px 20px 50px;
       text-align: center;
-      padding: 50px 20px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 12px var(--shadow);
     }
-
+    
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
     header h1 {
-      font-size: 3em;
-      color: #111;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
     }
-
-    header p {
-      font-size: 1.2em;
-      color: #666;
+    
+    .subtitle {
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-bottom: 25px;
+      opacity: 0.9;
     }
-
+    
+    .research-areas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+    
+    .research-tag {
+      background: rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      backdrop-filter: blur(5px);
+    }
+    
+    .contact-links {
+      margin-top: 30px;
+    }
+    
+    .contact-links a {
+      color: white;
+      margin: 0 15px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-links a:hover {
+      color: var(--accent);
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .section-heading {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    
+    section {
+      margin-bottom: 80px;
+    }
+    
+    .about-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    
+    .about-text {
+      flex: 2;
+    }
+    
+    .about-image {
+      flex: 1;
+      max-width: 300px;
+      box-shadow: 0 10px 20px var(--shadow);
+      border-radius: 5px;
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px var(--shadow);
+    }
+    
+    .project-header {
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+    
+    .project-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    
+    .project-tag {
+      background: rgba(255,255,255,0.15);
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    
+    .project-body {
+      padding: 20px;
+    }
+    
+    .project-description {
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+    
+    .project-details {
+      margin-top: 20px;
+    }
+    
+    summary {
+      cursor: pointer;
+      padding: 10px 15px;
+      background: var(--light);
+      border-radius: 5px;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    summary::after {
+      content: "\f078";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      transition: transform 0.3s;
+    }
+    
+    details[open] summary::after {
+      transform: rotate(180deg);
+    }
+    
+    .details-content {
+      padding: 20px 15px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .details-content h4 {
+      margin: 15px 0 10px;
+      color: var(--primary);
+    }
+    
+    .details-content ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .details-content pre {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+    
+    .details-content code {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9rem;
+    }
+    
+    .publication-list {
+      list-style-type: none;
+    }
+    
+    .publication-item {
+      padding: 20px;
+      background: white;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px var(--shadow);
+    }
+    
+    .publication-title {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    
+    .publication-meta {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    
+    .publication-abstract {
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    
+    .contact-section {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      background: var(--light);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .contact-info a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-info a:hover {
+      color: var(--primary);
+    }
+    
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .footer-links {
+      margin: 20px 0;
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
     canvas {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
+      opacity: 0.3;
     }
 
-    section {
-      max-width: 800px;
-      margin: 100px auto;
-      padding: 30px;
-      background: rgba(250, 250, 250, 0.95);
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+      
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
     }
 
-    h2 {
-      color: #6a0dad;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+    /* Nav styles */
+    nav {
+      background: var(--primary);
+      color: white;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s;
     }
-
-    h3 {
-      margin-top: 25px;
+    
+    .nav-scrolled {
+      background: rgba(44, 62, 80, 0.95);
+      padding: 10px 0;
     }
-
-    ul {
-      padding-left: 20px;
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-
-    a {
-      color: #ff1493;
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white;
       text-decoration: none;
     }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #888;
+    
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 3px 0;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      }
+      
+      .nav-active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .hamburger-active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+      }
+      
+      .hamburger-active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger-active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+      }
     }
   </style>
 </head>
 <body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">Pratyush Maharana</a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<canvas id="bg"></canvas>
+  <canvas id="bg"></canvas>
 
-<header>
-  <h1>Pratyush</h1>
-  <p>Class 12 | JEE 2026 | Exploring AI, ML, Biology & Stock Tech</p>
-</header>
+  <header>
+    <div class="header-content">
+      <h1>Pratyush Maharana</h1>
+      <p class="subtitle">AI & Computational Research enthusiast  | high school | learning </p>
+      
+      <div class="research-areas">
+        <span class="research-tag">Machine Learning</span>
+        <span class="research-tag">bird noise </span>
+        <span class="research-tag">Computational Finance</span>
+      </div>
+      
+      <div class="contact-links">
+        <a href="https://github.com/PratyushMaharana" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/Pratyush008PRM" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:pratyushmaharana@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>I’m a passionate learner in Class 12 diving into AI and Machine Learning. I love solving problems that blend biology, mathematics, and technology. I’m also fascinated by protein structures, DNA, medicine prediction, and how AI can enhance them.</p>
-</section>
+  <main>
+    <section id="about">
+      <h2 class="section-heading">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm a passionate researcher at the intersection of artificial intelligence and biological sciences. Currently in school , I focus on developing computational models that address challenges in medicine, genomics, and financial modeling.</p>
+          <p>My research interests span protein structure prediction, DNA sequencing analysis, drug discovery algorithms, and time-series forecasting. I'm particularly fascinated by how deep learning approaches can enhance our understanding of biological systems and improve healthcare outcomes.</p>
+          <p>Through my projects, I aim to bridge the gap between theoretical computer science and practical applications in Environmentand and future, seeking innovations that can make a meaningful impact on scientific progress.</p>
+        </div>
+        <img src="handsome.jpg" alt="Pratyush Maharana" class="about-image" />
+      </div>
+    </section>
 
-<section>
-  <h2>Projects</h2>
+    <section id="research">
+      <h2 class="section-heading">Research Interests</h2>
+        
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">AI in Healthcare (in progress)</h3>
+            <div class="project-tags">
+              <span class="project-tag">NLP</span>
+              <span class="project-tag">Biomedical AI</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">Developing intelligent systems that analyze medical literature and predict drug interactions to support better healthcare decisions.</p>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Financial ML</h3>
+            <div class="project-tags">
+              <span class="project-tag">Time Series</span>
+              <span class="project-tag">LSTM</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">Utilizing dl/ml models for financial data analysis and predicting market trends with advanced neural networks.</p>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Urban Ecology</h3>
+            <div class="project-tags">
+              <span class="project-tag">Bioacoustics</span>
+              <span class="project-tag">Environmental AI</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">Studying the impact of urbanization on wildlife through computational analysis of environmental data and animal behaviors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-<div>
-  <div>
-  <h3>1. Stock Price Prediction using LSTM</h3>
-  <p><strong>Tags:</strong> Time Series, LSTM, Deep Learning, Financial Modeling</p>
-
-  <details>
-    <summary>📘 Full Project Description</summary>
-
-    <h4>Overview</h4>
-    <p>This project leverages a Long Short‑Term Memory (LSTM) neural network to forecast future stock prices based on historical data. By capturing temporal dependencies, the model aims to provide accurate short‑term predictions for informed trading decisions.</p>
-
-    <h4>Key Features</h4>
-    <ul>
-      <li>📈 Automatic historical data fetching via <code>yfinance</code>.</li>
-      <li>🤖 Two‑layer LSTM architecture for sequence modeling.</li>
-      <li>🔄 Data preprocessing: scaling with MinMaxScaler and sequence generation.</li>
-      <li>📊 Visualization of actual vs. predicted prices using Matplotlib.</li>
-    </ul>
-
-    <h4>Methodology</h4>
-    <ul>
-      <li>1. Data Collection: Pull daily closing prices for a given ticker (e.g., AAPL).</li>
-      <li>2. Preprocessing: Normalize data and create 60‑day input sequences.</li>
-      <li>3. Model: Two LSTM layers (50 units each) + Dense layers for regression.</li>
-      <li>4. Training: 10 epochs, batch size 32, optimized with Adam & MSE loss.</li>
-      <li>5. Evaluation: Compute MSE and MAE, visualize predictions.</li>
-    </ul>
-
-    <h4>Results & Evaluation</h4>
-    <ul>
-      <li>Mean Squared Error (MSE): 12.34</li>
-      <li>Mean Absolute Error (MAE): 3.21</li>
-      <li>Visualization: Plots showing close alignment of predicted vs. actual prices.</li>
-    </ul>
-
-    <h4>Usage & Installation</h4>
-    <pre><code>git clone https://github.com/your-username/stock-price-prediction.git
+    <section id="projects">
+      <h2 class="section-heading">Research Projects</h2>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Stock Price Prediction using LSTM</h3>
+          <div class="project-tags">
+            <span class="project-tag">Time Series</span>
+            <span class="project-tag">LSTM</span>
+            <span class="project-tag">Deep Learning</span>
+            <span class="project-tag">Financial Modeling</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-description">A deep learning approach to forecast stock market trends using Long Short-Term Memory neural networks, providing accurate short-term predictions for informed trading decisions.</p>
+          
+          <details class="project-details">
+            <summary>View Project Details</summary>
+            <div class="details-content">
+              <h4>Overview</h4>
+              <p>This project leverages a Long Short-Term Memory (LSTM) neural network to forecast future stock prices based on historical data. By capturing temporal dependencies, the model aims to provide accurate short-term predictions for informed trading decisions.</p>
+    
+              <h4>Key Features</h4>
+              <ul>
+                <li>Automatic historical data fetching via <code>yfinance</code>.</li>
+                <li>Two-layer LSTM architecture for sequence modeling.</li>
+                <li>Data preprocessing: scaling with MinMaxScaler and sequence generation.</li>
+                <li>Visualization of actual vs. predicted prices using Matplotlib.</li>
+              </ul>
+    
+              <h4>Methodology</h4>
+              <ul>
+                <li>1. Data Collection: Pull daily closing prices for a given ticker (e.g., AAPL).</li>
+                <li>2. Preprocessing: Normalize data and create 60-day input sequences.</li>
+                <li>3. Model: Two LSTM layers (50 units each) + Dense layers for regression.</li>
+                <li>4. Training: 10 epochs, batch size 32, optimized with Adam & MSE loss.</li>
+                <li>5. Evaluation: Compute MSE and MAE, visualize predictions.</li>
+              </ul>
+    
+              <h4>Results & Evaluation</h4>
+              <ul>
+                <li>Mean Squared Error (MSE): 12.34</li>
+                <li>Mean Absolute Error (MAE): 3.21</li>
+                <li>Visualization: Plots showing close alignment of predicted vs. actual prices.</li>
+              </ul>
+    
+              <h4>Usage & Installation</h4>
+              <pre><code>git clone https://github.com/your-username/stock-price-prediction.git
 cd stock-price-prediction
 pip install -r requirements.txt
 jupyter notebook stock_price_prediction.ipynb</code></pre>
+            </div>
+          </details>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Urban Bird Sound Study</h3>
+          <div class="project-tags">
+            <span class="project-tag">Bioacoustics</span>
+            <span class="project-tag">Spectrograms</span>
+            <span class="project-tag">Environmental Noise</span>
+            <span class="project-tag">Urban Ecology</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-description">A comprehensive analysis of how anthropogenic noise influences bird vocal behavior, comparing recordings from urban and rural habitats to quantify adaptations in bird calls.</p>
+          
+          <details class="project-details">
+            <summary>View Project Details</summary>
+            <div class="details-content">
+              <h4>Overview</h4>
+              <p>This study investigates how anthropogenic (human-made) noise influences bird vocal behavior. By comparing recordings from urban and rural habitats, we quantify shifts in pitch, frequency, amplitude, and duration that birds use to adapt their calls in noisy environments.</p>
+    
+              <h4>Key Insights</h4>
+              <ul>
+                <li>Urban birds often increase call amplitude (loudness) to overcome background noise.</li>
+                <li>Frequency shifts upward help avoid overlap with low-frequency traffic noise.</li>
+                <li>Vegetation (trees, green spaces) attenuates noise, creating acoustic refuges.</li>
+              </ul>
+    
+              <h4>Methodology</h4>
+              <ul>
+                <li>Audio recordings taken via the Phyphox smartphone app across Delhi sectors 7–9.</li>
+                <li>Spectrograms generated with Spek to visualize frequency overlap.</li>
+                <li>Comparative analysis of sound pressure levels in vegetated vs. non-vegetated areas.</li>
+              </ul>
+    
+              <h4>Future Scope</h4>
+              <ul>
+                <li>Expand to longitudinal studies across seasons to track adaptation over time.</li>
+                <li>Develop machine-learning models for automated bird-call classification.</li>
+                <li>Study ecological impacts on mating success and territory defense.</li>
+                <li>Inform urban planning by mapping "quiet zones" for wildlife conservation.</li>
+                <li>Perform cross-species comparisons to identify most noise-sensitive birds.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+      
+     
+     
 
-    <h4>📄 Project Report</h4>
-    <p><a href="stock_prediction (1).pdf" target="_blank">View Full Report (PDF)</a></p>
-  </details>
-</div>
 
+    <section id="contact">
+      <h2 class="section-heading">Contact</h2>
+      
+      <div class="contact-section">
+        <p>I'm always interested in research collaborations and discussions about AI, computational biology, and interdisciplinary projects. Feel free to reach out through any of the following channels:</p>
+        
+        <div class="contact-grid">
+          <div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-info">
+                <h4>Email</h4>
+                <a href="mailto:pratyushmaharana@gmail.com">pratyushmaharana3@gmail.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="contact-info">
+                <h4>GitHub</h4>
+                <a href="https://github.com/PratyushMaharana" target="_blank">PratyushMaharana</a>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div class="contact-info">
+                <h4>Twitter</h4>
+                <a href="https://x.com/Pratyush008PRM" target="_blank">Pratyush008PRM</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="contact-info">
+                <h4>Academic Status</h4>
+                <p>Class 12 | JEE 2026 Aspirant</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-   <div>
-  <h3>2. Urban Bird Sound Study – Impact of Urbanization on Bird Vocalizations</h3>
-  <div>
-  <h3>/kabootar – Bird Noise Analysis</h3>
-  <p><strong>Tags:</strong> Bioacoustics, Spectrograms, Environmental Noise, Urban Ecology</p>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2025 Pratyush Maharana. All rights reserved.</p>
+    </div>
+  </footer>
 
-  <details>
-    <summary>📘 Full Project Description</summary>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Navigation functionality
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('hamburger-active');
+      navLinks.classList.toggle('nav-active');
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('hamburger-active');
+        navLinks.classList.remove('nav-active');
+      });
+    });
+    
+    // Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('bg'), alpha: true, antialias: true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    camera.position.z = 15;
 
-    <h4>Overview</h4>
-    <p>This study investigates how anthropogenic (human‑made) noise influences bird vocal behavior. By comparing recordings from urban and rural habitats, we quantify shifts in pitch, frequency, amplitude, and duration that birds use to adapt their calls in noisy environments.</p>
+    // Add ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    
+    // Add directional light
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(10, 20, 5);
+    scene.add(directionalLight);
 
-    <h4>Key Insights</h4>
-    <ul>
-      <li>Urban birds often increase call amplitude (loudness) to overcome background noise.</li>
-      <li>Frequency shifts upward help avoid overlap with low‑frequency traffic noise.</li>
-      <li>Vegetation (trees, green spaces) attenuates noise, creating acoustic refuges.</li>
-    </ul>
-
-    <h4>Methodology</h4>
-    <ul>
-      <li>📱 Audio recordings taken via the Phyphox smartphone app across Delhi sectors 7–9.</li>
-      <li>📊 Spectrograms generated with Spek to visualize frequency overlap.</li>
-      <li>🌳 Comparative analysis of sound pressure levels in vegetated vs. non‑vegetated areas.</li>
-    </ul>
-
-    <h4>Future Scope</h4>
-    <ul>
-      <li>📈 Expand to longitudinal studies across seasons to track adaptation over time.</li>
-      <li>🧠 Develop machine‑learning models for automated bird‑call classification.</li>
-      <li>🔬 Study ecological impacts on mating success and territory defense.</li>
-      <li>🏙️ Inform urban planning by mapping “quiet zones” for wildlife conservation.</li>
-      <li>🦜 Perform cross‑species comparisons to identify most noise‑sensitive birds.</li>
-    </ul>
-
-    <h4>Resources</h4>
-    <p>🔗 <a href="https://en.wikipedia.org/wiki/Synurbization" target="_blank">Synurbization – Wikipedia</a></p>
-    <p>📄 <a href="anthropogenic noise .docx.pdf" target="_blank">View Full Research Paper (PDF)</a></p>
-  </details>
-</div>
-
-  
-  </a>
-</p>
-   </div>
-
-
-  <div>
-    <h3>3. AI-powered Medicine Predictor(building)...</h3>
-   
-    <p>Uses biomedical NLP to detect potential drug interactions and treatment suggestions based on published research data.</p>
-    <div>
- 
-  <p><strong>Tags:</strong> NLP, Transformers, Biomedical AI, Drug Interactions</p>
-
-  <details>
-    <summary>📘 Full Project Description</summary>
-
-    <h4>Overview</h4>
-    <p>The AI‑Powered Medicine Predictor is a smart assistant that leverages state‑of‑the‑art Natural Language Processing (NLP) to analyze medical literature and predict potential drug interactions, contraindications, and treatment suggestions. By ingesting research papers, drug databases, and clinical guidelines, it provides evidence‑backed insights to support healthcare decision‑making.</p>
-
-    <h4>Features</h4>
-    <ul>
-      <li>📚 **Literature Ingestion**: Automatically scrapes and preprocesses abstracts/full texts from PubMed, clinical trials, and open‑access journals.</li>
-      <li>🧠 **Transformer Models**: Fine‑tuned BERT or BioBERT models for entity recognition (drugs, dosages, conditions) and relation extraction (interactions, side effects).</li>
-      <li>🔍 **Interaction Checker**: Given a list of medications, it flags known and potential interactions with severity levels.</li>
-      <li>💡 **Treatment Suggestions**: Recommends alternative medications or dosage adjustments based on extracted clinical guidelines.</li>
-      <li>📈 **Explainability**: Highlights the source sentences and confidence scores for each prediction.</li>
-    </ul>
-
-    <h4>Installation & Usage</h4>
-    <pre><code>git clone https://github.com/your-username/medicine-predictor.git
-cd medicine-predictor
-pip install -r requirements.txt
-
-# To launch the web demo:
-python app.py
-
-# Example API call:
-POST /predict
-{
-  "medications": ["aspirin", "warfarin"],
-  "conditions": ["hypertension"]
-}
-</code></pre>
-
-    <h4>Architecture</h4>
-    <ul>
-      <li>Backend: Flask/FastAPI serving REST endpoints</li>
-      <li>Models: Transformers via HuggingFace Transformers library</li>
-      <li>Database: SQLite/PostgreSQL for caching literature and results</li>
-      <li>Frontend (optional): React or simple HTML form for user input</li>
-    </ul>
-
-    <h4>Results & Evaluation</h4>
-    <p>On a test set of 1,000 drug‑drug pairs, the model achieved:</p>
-    <ul>
-      <li>Precision: 0.87</li>
-      <li>Recall: 0.82</li>
-      <li>F1‑Score: 0.84</li>
-    </ul>
-
-    <h4>Future Scope</h4>
-    <ul>
-      <li>🔬 Integrate real‑time electronic health record (EHR) data for live monitoring.</li>
-      <li>🌐 Expand to multi‑language support for non‑English medical literature.</li>
-      <li>📊 Dashboard with interactive visualizations of interaction networks.</li>
-      <li>⚙️ Continuous learning pipeline to update models as new research is published.</li>
-    </ul>
-
-    <h4>📄 Resources</h4>
-    <p><a href="https://huggingface.co/transformers/" target="_blank">HuggingFace Transformers</a> | <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed</a></p>
-
-  </details>
-</div>
-
-  </div>
-
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <p>GitHub: <a href="https://github.com/PratyushMaharana" target="_blank">PratyushMaharana</a></p>
-  <p>X: <a href="https://x.com/Pratyush008PRM" target="_blank">Pratyush008PRM</a></a></p>
-  <p>Email: pratyushmaharana@gmail.com
-</section>
-
-<footer>
-  &copy; 2025 Pratyush. Made with + Three.js + GitHub Pages.
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    // DNA double helix creation
+    function createDNAHelix() {
+      const dnaGroup = new THREE.Group();
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+  const canvas = document.getElementById('bg');
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('bg'), alpha: true});
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 10;
+
+  const colors = [0xff4081, 0x7c4dff, 0x40c4ff, 0x00e676];
+
+  const helixGroup = new THREE.Group();
+  for (let i = -20; i < 20; i++) {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const sphere1 = new THREE.Mesh(
+      new THREE.SphereGeometry(0.2, 16, 16),
+      new THREE.MeshStandardMaterial({ color })
+    );
+    const sphere2 = sphere1.clone();
+    const angle = i * 0.4;
+    const radius = 2;
+    sphere1.position.set(Math.sin(angle) * radius, i * 0.5, Math.cos(angle) * radius);
+    sphere2.position.set(-Math.sin(angle) * radius, i * 0.5, -Math.cos(angle) * radius);
+    helixGroup.add(sphere1, sphere2);
+  }
+  scene.add(helixGroup);
 
   const light = new THREE.PointLight(0xffffff, 1);
   light.position.set(10, 10, 10);
   scene.add(light);
 
-  // DNA spiral
-  const helixGroup = new THREE.Group();
-  for (let i = 0; i < 60; i++) {
-    const material = new THREE.MeshStandardMaterial({ color: (i % 2 === 0) ? 0x8e44ad : 0x2980b9 });
-    const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 16), material);
-    const angle = i * 0.3;
-    sphere.position.set(Math.cos(angle) * 2, i * 0.3 - 6, Math.sin(angle) * 2);
-    helixGroup.add(sphere);
-  }
-  scene.add(helixGroup);
-
-
+  camera.position.z = 10;
 
   function animate() {
     requestAnimationFrame(animate);
     helixGroup.rotation.y += 0.005;
-   
     renderer.render(scene, camera);
   }
+
   animate();
 
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 </script>
-
-</body>
-</html>
-
