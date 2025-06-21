@@ -29,31 +29,27 @@
       overflow-x: hidden;
     }
 
-    /* Smooth scroll */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Glow effect */
     .glow {
       text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
     }
 
-    /* Terminal cursor */
     @keyframes blink {
       50% { opacity: 0; }
     }
 
-    /* Layout */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* Header */
+    /* ✅ FIXED: no clipping by using padding instead of height */
     header {
-      height: 100vh;
+      padding: 8rem 0;
       display: flex;
       align-items: center;
       position: relative;
@@ -64,6 +60,7 @@
       z-index: 2;
     }
 
+    /* ✅ FIXED: gradient heading fully visible and responsive */
     .hero h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       margin-bottom: 1rem;
@@ -71,6 +68,11 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      -webkit-text-fill-color: transparent; /* ✅ REQUIRED FIX */
+      text-shadow: 0 0 15px rgba(100, 255, 218, 0.25);
+      word-break: break-word;
+      max-width: 100%;
+      line-height: 1.2;
     }
 
     .hero p {
@@ -80,7 +82,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -109,7 +110,6 @@
       color: var(--primary);
     }
 
-    /* Sections */
     section {
       padding: 6rem 0;
       position: relative;
@@ -139,7 +139,6 @@
       margin-left: 2rem;
     }
 
-    /* Project Grid */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -175,7 +174,6 @@
       font-family: 'Fira Code', monospace;
     }
 
-    /* Terminal */
     .terminal {
       background: var(--surface);
       border-radius: 8px;
@@ -218,24 +216,22 @@
       animation: blink 1s infinite;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 3rem 0;
       color: var(--text-dim);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
-      
+
       .section-header {
         flex-direction: column;
         align-items: flex-start;
       }
-      
+
       .section-line {
         display: none;
       }
@@ -256,7 +252,7 @@
   <header>
     <div class="container hero">
       <h1>Building secure systems for the future.</h1>
-      <p>Cybersecurity researcher & red team specialist focused on offensive security, pentesting, and AI-powered defense systems.</p>
+      <p>Cybersecurity researcher & red team specialist focused on offensive security, pentesting , AI-powered defense systems and understanding the bird responsive by human made noise.</p>
       <div class="terminal">
         <div class="terminal-header">
           <div class="terminal-dot red"></div>
@@ -286,7 +282,7 @@
         <div class="section-line"></div>
       </div>
       <p>I'm a high school cybersecurity researcher passionate about offensive security and ethical hacking. My work focuses on identifying vulnerabilities before malicious actors can exploit them.</p>
-      <p>When I'm not breaking into systems (ethically!), bird vocalizations and identification in urban areas and using machine learning in finance  .</p>
+      <p>When I'm not breaking into systems (ethically!), I contribute to open-source security tools and write about my findings.</p>
     </div>
   </section>
 
@@ -372,7 +368,7 @@
       </div>
       <p>Looking for collaborators or want to discuss cybersecurity? Reach out:</p>
       <div style="margin-top: 2rem;">
-        <a href="mailto:pratyushmaharana@gmail.com" style="color: var(--primary); text-decoration: none;">
+        <a href="mailto:pratyushmaharana3@gmail.com" style="color: var(--primary); text-decoration: none;">
           <i class="fas fa-envelope"></i> pratyushmaharana3@gmail.com
         </a>
       </div>
@@ -390,7 +386,6 @@
   </footer>
 
   <script>
-    // Typewriter effect
     const strings = ["cyber and bird sound.txt", "nmap -sV target.com", "python exploit.py"];
     let stringIndex = 0;
     let charIndex = 0;
@@ -418,10 +413,8 @@
       }
     }
 
-    // Start typing
     setTimeout(type, 1000);
 
-    // Scroll animation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
