@@ -1,114 +1,435 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f9d423, #ff4e50);
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Container for layout */
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header */
-header {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 80px 0;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-header p {
-    font-size: 1.2em;
-    opacity: 0.8;
-}
-
-/* Main Content */
-main {
-    padding: 40px 0;
-}
-
-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.8;
-}
-
-/* Button */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #ff4e50;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn:hover {
-    background-color: #f9d423;
-    transform: translateY(-3px);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-size: 1em;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratyush Maharana | Cybersecurity Researcher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --primary: #64ffda;
+      --secondary: #ff6482;
+      --text: #e6e6e6;
+      --text-dim: #888888;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Glow effect */
+    .glow {
+      text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    }
+
+    /* Terminal cursor */
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #64ffda, #ff6482);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Sections */
     section {
-        margin-bottom: 30px;
-        padding: 15px;
+      padding: 6rem 0;
+      position: relative;
     }
 
-    .btn {
-        padding: 10px 20px;
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
     }
-}
+
+    .section-number {
+      color: var(--primary);
+      font-family: 'Fira Code', monospace;
+      margin-right: 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      flex-grow: 1;
+    }
+
+    .section-line {
+      height: 1px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      flex-grow: 1;
+      margin-left: 2rem;
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(100, 255, 218, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .project-tag {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Terminal */
+    .terminal {
+      background: var(--surface);
+      border-radius: 8px;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background: #1a1a1a;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    .terminal-dot.red { background: #ff5f56; }
+    .terminal-dot.yellow { background: #ffbd2e; }
+    .terminal-dot.green { background: #27c93f; }
+
+    .terminal-body {
+      padding: 1.5rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .terminal-line {
+      margin-bottom: 0.5rem;
+    }
+
+    .terminal-prompt {
+      color: var(--primary);
+    }
+
+    .cursor {
+      animation: blink 1s infinite;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--text-dim);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .section-line {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">pratyush@portfolio:~</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container hero">
+      <h1>Building secure systems for the future.</h1>
+      <p>Cybersecurity researcher & red team specialist focused on offensive security, penetration testing, and AI-powered defense systems.</p>
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span> whoami
+          </div>
+          <div class="terminal-line">
+            pratyush@cybersecurity-researcher
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span> <span class="typed-text">cat skills.txt</span><span class="cursor">|</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <p>I'm a high school cybersecurity researcher passionate about offensive security and ethical hacking. My work focuses on identifying vulnerabilities before malicious actors can exploit them.</p>
+      <p>When I'm not breaking into systems (ethically!), I contribute to open-source security tools and write about my findings.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Automated Penetration Testing Framework</h3>
+          <p>A modular system for automating security assessments and vulnerability scanning.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Security</span>
+            <span class="project-tag">Automation</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>AI-Powered Threat Detection</h3>
+          <p>Machine learning models to identify zero-day vulnerabilities in network traffic.</p>
+          <div class="project-tags">
+            <span class="project-tag">TensorFlow</span>
+            <span class="project-tag">IDS</span>
+            <span class="project-tag">AI</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Urban Bird Sound Analysis</h3>
+          <p>Studying avian adaptation to urban noise pollution using signal processing.</p>
+          <div class="project-tags">
+            <span class="project-tag">Bioacoustics</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">ML</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Research</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span> research_interests.sh
+          </div>
+          <div class="terminal-line">
+            > Adversarial Machine Learning
+          </div>
+          <div class="terminal-line">
+            > Penetration Testing Methodologies
+          </div>
+          <div class="terminal-line">
+            > AI-Assisted Vulnerability Discovery
+          </div>
+          <div class="terminal-line">
+            > Urban Wildlife Adaptation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-line"></div>
+      </div>
+      <p>Looking for collaborators or want to discuss cybersecurity? Reach out:</p>
+      <div style="margin-top: 2rem;">
+        <a href="mailto:pratyushmaharana@gmail.com" style="color: var(--primary); text-decoration: none;">
+          <i class="fas fa-envelope"></i> pratyushmaharana@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2023 Pratyush Maharana. All rights reserved.</p>
+      <div style="margin-top: 1rem;">
+        <a href="https://github.com/PratyushMaharana" style="color: var(--text-dim); margin: 0 1rem;"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/Pratyush008PRM" style="color: var(--text-dim); margin: 0 1rem;"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Typewriter effect
+    const strings = ["cat skills.txt", "nmap -sV target.com", "python exploit.py"];
+    let stringIndex = 0;
+    let charIndex = 0;
+    const typedText = document.querySelector('.typed-text');
+    const cursor = document.querySelector('.cursor');
+
+    function type() {
+      if (charIndex < strings[stringIndex].length) {
+        typedText.textContent += strings[stringIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, Math.random() * 100 + 50);
+      } else {
+        setTimeout(erase, 1000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typedText.textContent = strings[stringIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        stringIndex = (stringIndex + 1) % strings.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    // Start typing
+    setTimeout(type, 1000);
+
+    // Scroll animation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
