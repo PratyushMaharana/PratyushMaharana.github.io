@@ -1,881 +1,570 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f9d423, #ff4e50);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container for layout */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+/* Main Content */
+main {
+    padding: 40px 0;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff4e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #f9d423;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    section {
+        margin-bottom: 30px;
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pratyush Maharana | AI & Bioinformatics Research</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratyush Maharana | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #2c3e50;
-      --secondary: #3498db;
-      --accent: #1abc9c;
-      --light: #f8f9fa;
-      --dark: #2c3e50;
-      --text: #333;
-      --text-light: #6c757d;
-      --border: #dee2e6;
-      --shadow: rgba(0,0,0,0.1);
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --primary: #64ffda;
+      --secondary: #ff6482;
+      --text: #e6e6e6;
+      --text-dim: #888888;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    
+
     body {
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
-      line-height: 1.6;
+      background-color: var(--bg);
       color: var(--text);
-      background-color: var(--light);
+      line-height: 1.6;
     }
-    
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 100px 20px 50px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 4px 12px var(--shadow);
-    }
-    
-    .header-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-    }
-    
-    .subtitle {
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin-bottom: 25px;
-      opacity: 0.9;
-    }
-    
-    .research-areas {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 25px 0;
-    }
-    
-    .research-tag {
-      background: rgba(255,255,255,0.2);
-      border-radius: 50px;
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      backdrop-filter: blur(5px);
-    }
-    
-    .contact-links {
-      margin-top: 30px;
-    }
-    
-    .contact-links a {
-      color: white;
-      margin: 0 15px;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .contact-links a:hover {
-      color: var(--accent);
-    }
-    
-    main {
+
+    .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 0 2rem;
     }
-    
-    .section-heading {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 40px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-    }
-    
-    section {
-      margin-bottom: 80px;
-    }
-    
-    .about-content {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-    
-    .about-text {
-      flex: 2;
-    }
-    
-    .about-image {
-      flex: 1;
-      max-width: 300px;
-      box-shadow: 0 10px 20px var(--shadow);
-      border-radius: 5px;
-    }
-    
+
+    /* Project Cards */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    
+
     .project-card {
-      background: white;
+      background: var(--surface);
       border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 2rem;
+      border: 1px solid rgba(100, 255, 218, 0.1);
     }
-    
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px var(--shadow);
-    }
-    
-    .project-header {
-      background: var(--primary);
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-    
-    .project-title {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
-    
+
     .project-tags {
       display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
     }
-    
+
     .project-tag {
-      background: rgba(255,255,255,0.15);
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
       font-size: 0.8rem;
-      padding: 4px 8px;
+    }
+
+    /* Document Access Buttons */
+    .doc-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .doc-btn {
+      padding: 8px 16px;
       border-radius: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    
-    .project-body {
-      padding: 20px;
+
+    .btn-pdf {
+      background: #e63946;
+      color: white;
     }
-    
-    .project-description {
-      margin-bottom: 20px;
-      color: var(--text-light);
+
+    .btn-github {
+      background: #333;
+      color: white;
     }
-    
-    .project-details {
-      margin-top: 20px;
+
+    .btn-preview {
+      background: var(--primary);
+      color: var(--bg);
     }
-    
-    summary {
+
+    /* PDF Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      position: relative;
+      margin: 2% auto;
+      width: 90%;
+      height: 90%;
+    }
+
+    .close {
+      position: absolute;
+      right: -15px;
+      top: -15px;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
       cursor: pointer;
-      padding: 10px 15px;
-      background: var(--light);
-      border-radius: 5px;
-      font-weight: 500;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    summary::after {
-      content: "\f078";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      transition: transform 0.3s;
-    }
-    
-    details[open] summary::after {
-      transform: rotate(180deg);
-    }
-    
-    .details-content {
-      padding: 20px 15px;
-      border-top: 1px solid var(--border);
-    }
-    
-    .details-content h4 {
-      margin: 15px 0 10px;
-      color: var(--primary);
-    }
-    
-    .details-content ul {
-      padding-left: 20px;
-      margin-bottom: 15px;
-    }
-    
-    .details-content pre {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-      margin: 15px 0;
-    }
-    
-    .details-content code {
-      font-family: 'Consolas', 'Monaco', monospace;
-      font-size: 0.9rem;
-    }
-    
-    .publication-list {
-      list-style-type: none;
-    }
-    
-    .publication-item {
-      padding: 20px;
-      background: white;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px var(--shadow);
-    }
-    
-    .publication-title {
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    
-    .publication-meta {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 10px;
-    }
-    
-    .publication-abstract {
-      margin-top: 10px;
-      font-size: 0.95rem;
-    }
-    
-    .contact-section {
-      background: white;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px var(--shadow);
-    }
-    
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-    
-    .contact-method {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .contact-icon {
-      background: var(--light);
-      width: 50px;
-      height: 50px;
+      z-index: 1001;
+      background: var(--secondary);
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 15px;
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
-    
-    .contact-info a {
-      color: var(--secondary);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .contact-info a:hover {
-      color: var(--primary);
-    }
-    
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 80px;
-    }
-    
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .footer-links {
-      margin: 20px 0;
-    }
-    
-    .footer-links a {
-      color: rgba(255,255,255,0.8);
-      margin: 0 15px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-    
-    .copyright {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-    
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      opacity: 0.3;
     }
 
-    @media (max-width: 768px) {
-      .about-content {
-        flex-direction: column;
-      }
-      
-      .about-image {
-        max-width: 100%;
-        margin-bottom: 30px;
-      }
-      
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      header h1 {
-        font-size: 2.2rem;
-      }
-      
-      .subtitle {
-        font-size: 1.1rem;
-      }
-    }
-
-    /* Nav styles */
-    nav {
-      background: var(--primary);
-      color: white;
-      padding: 15px 0;
-      position: fixed;
+    .pdf-iframe {
       width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: background 0.3s;
-    }
-    
-    .nav-scrolled {
-      background: rgba(44, 62, 80, 0.95);
-      padding: 10px 0;
-    }
-    
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: white;
-      text-decoration: none;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
-    
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-    
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      margin: 3px 0;
-      border-radius: 3px;
-      transition: all 0.3s;
-    }
-    
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: var(--primary);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        gap: 15px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
-      }
-      
-      .nav-active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .hamburger {
-        display: flex;
-      }
-      
-      .hamburger-active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-      }
-      
-      .hamburger-active span:nth-child(2) {
-        opacity: 0;
-      }
-      
-      .hamburger-active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-      }
+      height: 100%;
+      border: none;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">Pratyush Maharana</a>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <canvas id="bg"></canvas>
-
-  <header>
-    <div class="header-content">
-      <h1>Pratyush Maharana</h1>
-      <p class="subtitle">AI & ML enthusiast  | high school | learning </p>
-      
-      <div class="research-areas">
-        <span class="research-tag">Machine Learning</span>
-        <span class="research-tag">bird noise </span>
-        <span class="research-tag">Computational Finance</span>
-      </div>
-      
-      <div class="contact-links">
-        <a href="https://github.com/PratyushMaharana" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/Pratyush008PRM" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:pratyushmaharana@gmail.com"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="about">
-      <h2 class="section-heading">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>I'm a passionate researcher at the intersection of artificial intelligence and biological sciences. Currently in school , I focus on developing computational models that address challenges in medicine, genomics, and financial modeling.</p>
-          <p>My research interests span protein structure prediction, DNA sequencing analysis, drug discovery algorithms, and time-series forecasting. I'm particularly fascinated by how deep learning approaches can enhance our understanding of biological systems and improve healthcare outcomes.</p>
-          <p>Through my projects, I aim to bridge the gap between theoretical computer science and practical applications in Environmentand and future, seeking innovations that can make a meaningful impact on scientific progress.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="research">
-      <h2 class="section-heading">Research Interests</h2>
-        
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">AI in Healthcare (in progress)</h3>
-            <div class="project-tags">
-              <span class="project-tag">NLP</span>
-              <span class="project-tag">Biomedical AI</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-description">Developing intelligent systems that analyze medical literature and predict drug interactions to support better healthcare decisions.</p>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Financial ML</h3>
-            <div class="project-tags">
-              <span class="project-tag">Time Series</span>
-              <span class="project-tag">LSTM</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-description">Utilizing dl/ml models for financial data analysis and predicting market trends with advanced neural networks.</p>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Urban Ecology</h3>
-            <div class="project-tags">
-              <span class="project-tag">Bioacoustics</span>
-              <span class="project-tag">Environmental AI</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-description">Studying the impact of urbanization on wildlife through computational analysis of environmental data and animal behaviors.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
+  <div class="container">
     <section id="projects">
-      <h2 class="section-heading">Research Projects</h2>
-      
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">Stock Price estimation using LSTM</h3>
-          <div class="project-tags">
-            <span class="project-tag">Time Series</span>
-            <span class="project-tag">LSTM</span>
-            <span class="project-tag">Deep Learning</span>
-            <span class="project-tag">Financial Modeling</span>
-          </div>
-        </div>
-        <div class="project-body">
-          <p class="project-description">A deep learning approach to forecast stock market trends using Long Short-Term Memory neural networks, providing accurate short-term predictions for informed trading decisions.</p>
-          
-          <details class="project-details">
-            <summary>View Project Details</summary>
-            <div class="details-content">
-              <h4>Overview</h4>
-              <p>This project leverages a Long Short-Term Memory (LSTM) neural network to forecast future stock prices based on historical data. By capturing temporal dependencies, the model aims to provide accurate short-term predictions for informed trading decisions.</p>
-              
-               
-
-              <h4>Key Features</h4>
-              <ul>
-                <li>Automatic historical data fetching via <code>yfinance</code>.</li>
-                <li>Two-layer LSTM architecture for sequence modeling.</li>
-                <li>Data preprocessing: scaling with MinMaxScaler and sequence generation.</li>
-                <li>Visualization of actual vs. predicted prices using Matplotlib.</li>
-              </ul>
-    
-              <h4>Methodology</h4>
-              <ul>
-                <li>1. Data Collection: Pull daily closing prices for a given ticker (e.g., AAPL).</li>
-                <li>2. Preprocessing: Normalize data and create 60-day input sequences.</li>
-                <li>3. Model: Two LSTM layers (50 units each) + Dense layers for regression.</li>
-                <li>4. Training: 10 epochs, batch size 32, optimized with Adam & MSE loss.</li>
-                <li>5. Evaluation: Compute MSE and MAE, visualize predictions.</li>
-              </ul>
-    
-              <h4>Results & Evaluation</h4>
-              <ul>
-                <li>Mean Squared Error (MSE): 12.34</li>
-                <li>Mean Absolute Error (MAE): 3.21</li>
-                <li>Visualization: Plots showing close alignment of predicted vs. actual prices.</li>
-              </ul>
-               <a href="https://github.com/PratyushMaharana/stocks-prediciton/blob/main/price_and_number.ipynb" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;"> Stock estimation project </a>
-               <a href="stock_prediction (1).pdf" target="_blank" style="
-  display:inline-block;
-  background: linear-gradient(90deg, #4CAF50, #2E7D32);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-  📄 View Full Stock Prediction Report (PDF)
-</a>
-
-
-    
-              <h4>Usage & Installation</h4>
-              <pre><code>git clone https://github.com/your-username/stock-price-prediction.git
-cd stock-price-prediction
-pip install -r requirements.txt
-jupyter notebook stock_price_prediction.ipynb</code></pre>
-
-            </div>
-          </details>
-        </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">Urban Bird Sound Study</h3>
+      <h2>Research Projects</h2>
+      <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3>Urban Bird Sound Study</h3>
+          <p>Analysis of avian adaptation to urban noise pollution using signal processing.</p>
           <div class="project-tags">
             <span class="project-tag">Bioacoustics</span>
-            <span class="project-tag">Spectrograms</span>
-            <span class="project-tag">Environmental Noise</span>
-            <span class="project-tag">Urban Ecology</span>
+            <span class="project-tag">Research Paper</span>
+          </div>
+          <div class="doc-buttons">
+            <a href="anthropogenic_noise.docx.pdf" class="doc-btn btn-pdf" download>
+              <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            <a href="https://github.com/PratyushMaharana/kabootar" class="doc-btn btn-github" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <button class="doc-btn btn-preview" onclick="openPDFViewer('anthropogenic_noise.docx.pdf')">
+              <i class="fas fa-search"></i> Preview
+            </button>
           </div>
         </div>
-        <div class="project-body">
-          <p class="project-description">A comprehensive analysis of how anthropogenic noise influences bird vocal behavior, comparing recordings from urban and rural habitats to quantify adaptations in bird calls.</p>
-          
-          <details class="project-details">
-            <summary>View Project Details</summary>
-            <div class="details-content">
-              <h4>Overview</h4>
-              <p>This study investigates how anthropogenic (human-made) noise influences bird vocal behavior. By comparing recordings from urban and rural habitats, we quantify shifts in pitch, frequency, amplitude, and duration that birds use to adapt their calls in noisy environments.</p>
-    
-              <h4>Key Insights</h4>
-              <ul>
-                <li>Urban birds often increase call amplitude (loudness) to overcome background noise.</li>
-                <li>Frequency shifts upward help avoid overlap with low-frequency traffic noise.</li>
-                <li>Vegetation (trees, green spaces) attenuates noise, creating acoustic refuges.</li>
-              </ul>
-    
-              <h4>Methodology</h4>
-              <ul>
-                <li>Audio recordings taken via the Phyphox smartphone app across Delhi sectors 7–9.</li>
-                <li>Spectrograms generated with Spek to visualize frequency overlap.</li>
-                <li>Comparative analysis of sound pressure levels in vegetated vs. non-vegetated areas.</li>
-              </ul>
-    
-              <h4>Future Scope</h4>
-              <ul>
-                <li>Expand to longitudinal studies across seasons to track adaptation over time.</li>
-                <li>Develop machine-learning models for automated bird-call classification.</li>
-                <li>Study ecological impacts on mating success and territory defense.</li>
-                <li>Inform urban planning by mapping "quiet zones" for wildlife conservation.</li>
-                <li>Perform cross-species comparisons to identify most noise-sensitive birds.</li>
-              </ul>
-              <a href="anthropogenic noise .docx.pdf" target="_blank" style="
-  display:inline-block;
-  background: linear-gradient(90deg, #43cea2, #185a9d);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-  📄 Read my full project (PDF)
-</a>
 
-              <a href="https://github.com/PratyushMaharana/kabootar/blob/main/plottings.ipynb%20codes" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#2196F3; color:white; text-decoration:none; border-radius:5px;">View Kabootar plots Notebook on GitHub</a>
-
-            </div>
-          </details>
-        </div>
-      </div>
-      
-     
-     
-
-
-    <section id="contact">
-      <h2 class="section-heading">Contact</h2>
-      
-      <div class="contact-section">
-        <p>I'm always interested in research collaborations and discussions about AI, computational biology, and interdisciplinary projects. Feel free to reach out through any of the following channels:</p>
-        
-        <div class="contact-grid">
-          <div>
-            <div class="contact-method">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-info">
-                <h4>Email</h4>
-                <a href="mailto:pratyushmaharana@gmail.com">pratyushmaharana3@gmail.com</a>
-              </div>
-            </div>
-            
-            <div class="contact-method">
-              <div class="contact-icon">
-                <i class="fab fa-github"></i>
-              </div>
-              <div class="contact-info">
-                <h4>GitHub</h4>
-                <a href="https://github.com/PratyushMaharana" target="_blank">PratyushMaharana</a>
-              </div>
-            </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h3>Stock Price Prediction</h3>
+          <p>LSTM model for financial forecasting using deep learning.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Machine Learning</span>
           </div>
-          
-          <div>
-            <div class="contact-method">
-              <div class="contact-icon">
-                <i class="fab fa-twitter"></i>
-              </div>
-              <div class="contact-info">
-                <h4>Twitter</h4>
-                <a href="https://x.com/Pratyush008PRM" target="_blank">Pratyush008PRM</a>
-              </div>
-            </div>
-            
-            <div class="contact-method">
-              <div class="contact-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="contact-info">
-                <h4>Academic Status</h4>
-                <p>Class 12 | JEE 2026 Aspirant</p>
-              </div>
-            </div>
+          <div class="doc-buttons">
+            <a href="stock_prediction.pdf" class="doc-btn btn-pdf" download>
+              <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            <a href="https://github.com/PratyushMaharana/stocks-prediction" class="doc-btn btn-github" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <button class="doc-btn btn-preview" onclick="openPDFViewer('stock_prediction.pdf')">
+              <i class="fas fa-search"></i> Preview
+            </button>
           </div>
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <p class="copyright">&copy; 2025 Pratyush Maharana. All rights reserved.</p>
+  <!-- PDF Modal -->
+  <div id="pdf-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePDFViewer()">&times;</span>
+      <iframe id="pdf-viewer" class="pdf-iframe" src=""></iframe>
     </div>
-  </footer>
+  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
-    // Navigation functionality
-    const navbar = document.getElementById('navbar');
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        navbar.classList.add('nav-scrolled');
-      } else {
-        navbar.classList.remove('nav-scrolled');
+    // PDF Viewer Functions
+    function openPDFViewer(pdfPath) {
+      const modal = document.getElementById('pdf-modal');
+      const viewer = document.getElementById('pdf-viewer');
+      viewer.src = `https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + '/' + pdfPath)}&embedded=true`;
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePDFViewer() {
+      document.getElementById('pdf-modal').style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('pdf-modal');
+      if (event.target == modal) {
+        closePDFViewer();
       }
-    });
-    
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('hamburger-active');
-      navLinks.classList.toggle('nav-active');
-    });
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('hamburger-active');
-        navLinks.classList.remove('nav-active');
-      });
-    });
-    
-    // Three.js setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('bg'), alpha: true, antialias: true});
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    camera.position.z = 15;
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratyush Maharana | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --primary: #64ffda;
+      --secondary: #ff6482;
+      --text: #e6e6e6;
+      --text-dim: #888888;
+    }
 
-    // Add ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-    
-    // Add directional light
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    directionalLight.position.set(10, 20, 5);
-    scene.add(directionalLight);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-    // DNA double helix creation
-    function createDNAHelix() {
-      const dnaGroup = new THREE.Group();
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-  const canvas = document.getElementById('bg');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-  const colors = [0xff4081, 0x7c4dff, 0x40c4ff, 0x00e676];
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-  const helixGroup = new THREE.Group();
-  for (let i = -20; i < 20; i++) {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const sphere1 = new THREE.Mesh(
-      new THREE.SphereGeometry(0.2, 16, 16),
-      new THREE.MeshStandardMaterial({ color })
-    );
-    const sphere2 = sphere1.clone();
-    const angle = i * 0.4;
-    const radius = 2;
-    sphere1.position.set(Math.sin(angle) * radius, i * 0.5, Math.cos(angle) * radius);
-    sphere2.position.set(-Math.sin(angle) * radius, i * 0.5, -Math.cos(angle) * radius);
-    helixGroup.add(sphere1, sphere2);
-  }
-  scene.add(helixGroup);
+    /* Project Cards */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
-  const light = new THREE.PointLight(0xffffff, 1);
-  light.position.set(10, 10, 10);
-  scene.add(light);
+    .project-card {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 2rem;
+      border: 1px solid rgba(100, 255, 218, 0.1);
+    }
 
-  camera.position.z = 10;
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
 
-  function animate() {
-    requestAnimationFrame(animate);
-    helixGroup.rotation.y += 0.005;
-    renderer.render(scene, camera);
-  }
+    .project-tag {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
 
-  animate();
+    /* Document Access Buttons */
+    .doc-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-</script>
+    .doc-btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-pdf {
+      background: #e63946;
+      color: white;
+    }
+
+    .btn-github {
+      background: #333;
+      color: white;
+    }
+
+    .btn-preview {
+      background: var(--primary);
+      color: var(--bg);
+    }
+
+    /* PDF Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      position: relative;
+      margin: 2% auto;
+      width: 90%;
+      height: 90%;
+    }
+
+    .close {
+      position: absolute;
+      right: -15px;
+      top: -15px;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      background: var(--secondary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pdf-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section id="projects">
+      <h2>Research Projects</h2>
+      <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3>Urban Bird Sound Study</h3>
+          <p>Analysis of avian adaptation to urban noise pollution using signal processing.</p>
+          <div class="project-tags">
+            <span class="project-tag">Bioacoustics</span>
+            <span class="project-tag">Research Paper</span>
+          </div>
+          <div class="doc-buttons">
+            <a href="anthropogenic_noise.docx.pdf" class="doc-btn btn-pdf" download>
+              <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            <a href="https://github.com/PratyushMaharana/kabootar" class="doc-btn btn-github" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <button class="doc-btn btn-preview" onclick="openPDFViewer('anthropogenic_noise.docx.pdf')">
+              <i class="fas fa-search"></i> Preview
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h3>Stock Price Prediction</h3>
+          <p>LSTM model for financial forecasting using deep learning.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Machine Learning</span>
+          </div>
+          <div class="doc-buttons">
+            <a href="stock_prediction.pdf" class="doc-btn btn-pdf" download>
+              <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            <a href="https://github.com/PratyushMaharana/stocks-prediction" class="doc-btn btn-github" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <button class="doc-btn btn-preview" onclick="openPDFViewer('stock_prediction.pdf')">
+              <i class="fas fa-search"></i> Preview
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PDF Modal -->
+  <div id="pdf-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePDFViewer()">&times;</span>
+      <iframe id="pdf-viewer" class="pdf-iframe" src=""></iframe>
+    </div>
+  </div>
+
+  <script>
+    // PDF Viewer Functions
+    function openPDFViewer(pdfPath) {
+      const modal = document.getElementById('pdf-modal');
+      const viewer = document.getElementById('pdf-viewer');
+      viewer.src = `https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + '/' + pdfPath)}&embedded=true`;
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePDFViewer() {
+      document.getElementById('pdf-modal').style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('pdf-modal');
+      if (event.target == modal) {
+        closePDFViewer();
+      }
+    }
+  </script>
+</body>
+</html>
